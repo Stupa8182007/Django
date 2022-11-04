@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center">
+  <div class="post-entry">
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.content }}</p>
+  </div>
+    <h1>Размещение объявления</h1>
+   
+    <div class="form_new">
+      <form action="" method="post">
+        {% csrf_token %}
+        <p>
+      <label for="id_title">Название:</label>
+      <input class="form-control" type="text" name="title" maxlength="100" required="" id="id_title">
+      
+      
+    </p>
+  
+    
+    <p>
+      <label for="id_category">Категория:</label>
+      <select class="form-select" name="category" required="" id="id_category">
+    <option value="" selected="">Выберите категорию</option>
+  
+    <option value="2"> Data-Science</option>
+  
+    <option value="1"> repetitor</option>
+  
+    <option value="3"> веб-разработка</option>
+    <option value="4"> Кризис топливных ресурсов</option>
+  </select>
+      
+      
+    </p>
+  
+    
+    <p>
+      <label for="id_content">Содержание:</label>
+
+      <div class="form-floating">
+        <textarea style="height: 250px" name="content" rows="10" class="form-control" placeholder="Leave a comment here" id="id_content"></textarea>
+        
+      </div>
+      
+        
+      
+    </p>
+        
+  
+        <input type="submit" class="btn btn-success m-3" value="Сохранить">
+      </form>
+    </div>
+{% endblock content %}
