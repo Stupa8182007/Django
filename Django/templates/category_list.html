@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load mptt_tags %}
+      
+{% block title %}Список категорий{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      
+     
+      
+        
+        <div class="list-group" class="center" class="outside" style="max-width: 400px;">
+          {% recursetree object_list %}
+        
+        <a href="{{node.slug}}" class="list-group-item list-group-item-action" aria-current="true">{{node.title}}</a>
+          {% if not node.is_leaf_node %}
+                      <div class="children">
+                          {{ children }}
+              </div>
+          {% endif %}
+        {% endrecursetree %}
+      </div>
+    </div> 
+    <div class="col-md-6">
+      <img src="{% static 'media/images/image.png' %}" width="100%" alt="My image">
+     <h5>На нашем сайте, Вы, можете оставить предложение по решению энергетических проблем, таких как:
+      Проблемы топливных ресурсов, Экологический кризис энергетики, а также предложить свой вариант альтернативного возобновляемого источника энергии.
+     </h5>
+    </div>
+  </div>
+</div>
+        {% endblock  %}
+
+ 
