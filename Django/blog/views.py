@@ -2,14 +2,9 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView # новое
 from django.urls import reverse_lazy # импортируем новые методы
 from django import forms
-from .models import Post,QuillPost, Category
+from .models import Post, Category
 
-class QuillPostForm(forms.ModelForm):
-    class Meta:
-        model = QuillPost
-        fields = (
-            'content',
-        )
+
 
 
 class BlogListView(ListView):
